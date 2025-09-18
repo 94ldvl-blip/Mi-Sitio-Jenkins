@@ -5,7 +5,7 @@
             steps {
                 echo 'Obteniendo el código más reciente desde GitHub...'
                 // ▼▼▼ ¡¡IMPORTANTE!! Cambia esta URL por la de tu repositorio ▼▼▼
-                git url: 'https://github.com/TU_USUARIO/TU_REPOSITORIO.git', branch: 'main'
+                git url: 'https://github.com/94ldvl-blip/Mi-Sitio-Jenkins.git', branch: 'main'
             }
         }
         stage('2. Desplegar en Servidor Web') {
