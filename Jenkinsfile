@@ -1,22 +1,17 @@
-pipeline {
+ pipeline {
     agent any
-
     stages {
-        stage('Clonar repositorio') {
+        stage('1. Clonar Código') {
             steps {
-                git 'https://github.com/94ldvl-blip/Mi-Sitio-Jenkins.git'
+                echo 'Obteniendo el código más reciente desde GitHub...'
+                // ▼▼▼ ¡¡IMPORTANTE!! Cambia esta URL por la de tu repositorio ▼▼▼
+                git url: 'https://github.com/TU_USUARIO/TU_REPOSITORIO.git', branch: 'main'
             }
         }
-
-        stage('Copiar archivos al contenedor web') {
+        stage('2. Desplegar en Servidor Web') {
             steps {
-                sh 'docker cp index.html web-server:/usr/share/nginx/html/index.html'
-            }
-        }
-
-        stage('Finalizado') {
-            steps {
-                echo '🚀 Sitio desplegado exitosamente con Jenkins.'
+                echo 'Copiando archivos al servidor Nginx...'
+                sh 'cp -f *.html /var/website-data/'
             }
         }
     }
